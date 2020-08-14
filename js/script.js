@@ -1,3 +1,23 @@
+// Dsiplay element
+const display =  document.querySelector('.result');
+// All number buttons
+const numbers = document.querySelectorAll('.number');
+// Operator button + - x /
+const operators = document.querySelectorAll('.operator');
+// Equal element
+const equal = document.getElementById('equal');
+// Decimal element
+const decimal = document.getElementById('dot');
+// Clear element
+const clear = document.getElementById('AC');
+// A variable to display the value
+let displayValue = '';
+// First number
+let firstNumber = '';
+
+
+
+
 function add(a, b) {
     return a + b;
 }
@@ -17,20 +37,32 @@ function divide(a,b) {
 function operate(operator, a, b) {
     switch (operator) {
         case '+':
-            console.log(add(a, b));
+             add(a, b);
             break;
         case '-':
-            console.log(substract(a, b));
+             substract(a, b);
             break;
         case '*':
-            console.log(multiply(a, b));
+             multiply(a, b);
             break;
         case '/':
-            console.log(divide(a, b));
+             divide(a, b);
             break;
         default:
-            console.log('idiot choose one of these operators: + - * /')
+            console.log('stop being a nigger choose one of these operators: + - * /')
     }
 }
 
-operate('+', 5, 5)
+function getDisplayValue() {
+    numbers.forEach(number => {
+        number.addEventListener('click', () => {
+            display.textContent += number.value;
+            displayValue = display.textContent;
+        })
+    })
+}
+getDisplayValue();
+
+function calculate() {
+
+}
