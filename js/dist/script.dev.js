@@ -77,6 +77,16 @@ function getDisplayValue() {
       }
     });
   });
+} // When an operator button is clicked the value is stored in basicOperator
+
+
+function getOperator() {
+  operators.forEach(function (operator) {
+    operator.addEventListener('click', function () {
+      basicOperator = operator.value;
+      displayOperator.textContent = basicOperator;
+    });
+  });
 }
 
 decimal.addEventListener('click', function () {
@@ -87,17 +97,7 @@ decimal.addEventListener('click', function () {
     if (!firstNumber.includes('.')) firstNumber += '.';
     display.textContent = firstNumber;
   }
-}); // When an operator button is clicked the value is stored in basicOperator
-
-function getOperator() {
-  operators.forEach(function (operator) {
-    operator.addEventListener('click', function () {
-      basicOperator = operator.value;
-      displayOperator.textContent = basicOperator;
-    });
-  });
-} // Resets the variables and the content
-
+}); // Resets the variables and the content
 
 function allClear() {
   clear.addEventListener('click', function () {

@@ -1,10 +1,10 @@
 // Dsiplay first number
-const display = document.querySelector('.result');
+const display =  document.querySelector('.result');
 // Display operator
 const displayOperator = document.querySelector('.result-line2')
-    // Display second number
+// Display second number
 const displaySecondNumber = document.querySelector('.result-line3')
-    // All number buttons
+// All number buttons
 const numbers = document.querySelectorAll('.number');
 // Operator buttons + - x /
 const operators = document.querySelectorAll('.operator');
@@ -21,7 +21,10 @@ let firstNumber = '';
 // Second number
 let secondNumber = '';
 let basicOperator = '';
-let result;
+let result ;
+
+
+
 
 function add(a, b) {
     return parseFloat(a) + parseFloat(b);
@@ -32,8 +35,9 @@ function substract(a, b) {
 function multiply(a, b) {
     return parseFloat(a) * parseFloat(b);
 }
-function divide(a, b) {
-    return Math.round((a / b) * 1000) / 1000;
+
+function divide(a,b) {
+    return Math.round((a / b) * 1000) / 1000 ;
 }
 function operate(operator, a, b) {
     switch (operator) {
@@ -47,7 +51,6 @@ function operate(operator, a, b) {
             return divide(a, b);
     }
 }
-
 // Populates the display
 function getDisplayValue() {
     numbers.forEach(number => {
@@ -69,6 +72,16 @@ function getDisplayValue() {
             }
         })
     })
+
+}
+// When an operator button is clicked the value is stored in basicOperator
+function getOperator() {
+    operators.forEach(operator => {
+        operator.addEventListener('click', () => {
+            basicOperator = operator.value
+            displayOperator.textContent = basicOperator;
+        })
+    })
 }
 
 decimal.addEventListener('click', () => {
@@ -82,16 +95,6 @@ decimal.addEventListener('click', () => {
                 display.textContent = firstNumber;
         }
 })
-
-// When an operator button is clicked the value is stored in basicOperator
-function getOperator() {
-    operators.forEach(operator => {
-        operator.addEventListener('click', () => {
-            basicOperator = operator.value
-            displayOperator.textContent = basicOperator;
-        })
-    })
-}
 
 // Resets the variables and the content
 function allClear() {
